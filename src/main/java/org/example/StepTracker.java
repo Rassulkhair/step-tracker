@@ -8,7 +8,7 @@ public class StepTracker {
 
     StepTracker(Scanner scan) {
         scanner = scan;
-        for (int i =0; i< monthData.length; i++){
+        for (int i = 0; i < monthData.length; i++) {
             monthData[i] = new MonthData();
         }
     }
