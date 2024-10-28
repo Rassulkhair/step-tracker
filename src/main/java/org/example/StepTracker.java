@@ -7,6 +7,7 @@ public class StepTracker {
     Scanner scanner;
     MonthData[] monthData = new MonthData[12];
     final int DAYS = 30;
+    int goalByStepsPerDay = 10_000;
 
     StepTracker(Scanner scan) {
         scanner = scan;
@@ -39,8 +40,25 @@ public class StepTracker {
     }
 
     public void changeStepGoal() {
+        System.out.println("Введи цель");
+        int goal = scanner.nextInt();
+        if (goal > 0) {
+            goalByStepsPerDay = goal;
+        }
     }
 
     public void printStatistic() {
+        System.out.println("Введи месяц");
+        int month = scanner.nextInt();
+        if (month <= monthData.length && month > 0) {
+            for (int i = 0; i <= monthData.length - 1; i++) {
+                if (i == month - 1) {
+                    monthData[i].printDaysAndStepsFromMonth();
+                    System.out.println("Общее кол-во шагов " + monthData[i].sumStepsFromMonth());
+                    System.out.println("Макс шагов " + monthData[i].maxSteps());
+
+                }
+            }
+        }
     }
 }
